@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Birthday Celebration</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Trebuchet MS", Arial, sans-serif;
+            background:
+                radial-gradient(circle at top left, #ffd1e3, transparent 30%),
+                linear-gradient(135deg, #fff0f6, #ffe0ec);
+            color: #632b4b;
+            min-height: 100vh;
+            padding: 25px 15px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            margin-bottom: 25px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 18px;
+            box-shadow: 0 5px 15px rgba(180, 70, 120, 0.1);
+        }
+
+        nav h2 {
+            color: #d63384;
+        }
+
+        nav span {
+            color: #a04b74;
+            font-size: 0.9rem;
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            background: linear-gradient(135deg, #ff72ad, #d63384);
+            color: white;
+            padding: 70px 25px;
+            border-radius: 30px;
+            box-shadow: 0 12px 28px rgba(190, 58, 114, 0.3);
+        }
+
+        .hero::before,
+        .hero::after {
+            content: "♡";
+            position: absolute;
+            font-size: 150px;
+            opacity: 0.15;
+        }
+
+        .hero::before {
+            top: -35px;
+            left: 25px;
+        }
+
+        .hero::after {
+            bottom: -60px;
+            right: 25px;
+        }
+
+        .hero h1 {
+            position: relative;
+            font-size: clamp(2.3rem, 7vw, 4.5rem);
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            position: relative;
+            max-width: 650px;
+            margin: auto;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        .subtitle {
+            margin-top: 18px;
+            font-style: italic;
+            font-size: 1rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.94);
+            margin-top: 25px;
+            padding: 32px;
+            border-radius: 25px;
+            box-shadow: 0 8px 20px rgba(163, 69, 111, 0.12);
+        }
+
+        .reveal-stage {
+            position: relative;
+            margin-top: 25px;
+            padding-bottom: 10px;
+        }
+
+        .reveal-stage > #informationCard {
+            position: relative;
+            z-index: 3;
+            margin-top: 0;
+        }
+
+        .reveal-stage > #lettersSection {
+            position: relative;
+            z-index: 1;
+            margin-top: -82px;
+            padding-top: 112px;
+            background: #fffafd;
+        }
+
+        .reveal-stage > #lettersSection::before {
+            content: "";
+            position: absolute;
+            top: 30px;
+            left: 5%;
+            right: 5%;
+            height: 48px;
+            border-radius: 14px 14px 0 0;
+            background: #ffe0ec;
+            z-index: -1;
+            transform: rotate(-1.5deg);
+        }
+
+        .reveal-stage > #lettersSection::after {
+            content: "";
+            position: absolute;
+            top: 39px;
+            left: 8%;
+            right: 8%;
+            height: 42px;
+            border-radius: 14px 14px 0 0;
+            background: #ffd1e3;
+            z-index: -2;
+            transform: rotate(1.5deg);
+        }
+
+        .card h2 {
+            color: #d63384;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .card-intro {
+            text-align: center;
+            line-height: 1.6;
+            margin-bottom: 22px;
+            color: #80506a;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #f4a4c5;
+            border-radius: 12px;
+            font-size: 1rem;
+            color: #632b4b;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #d63384;
+            box-shadow: 0 0 8px rgba(214, 51, 132, 0.2);
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 12px;
+            background: #d63384;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: #ae225f;
+            transform: translateY(-2px);
+        }
+
+        #greeting {
+            text-align: center;
+            margin-top: 22px;
+            color: #d63384;
+            font-weight: bold;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        .details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 18px;
+        }
+
+        .detail-box {
+            text-align: center;
+            background: #fff0f6;
+            border-radius: 18px;
+            padding: 22px 15px;
+            border-top: 5px solid #ff72ad;
+        }
+
+        .detail-box .icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .detail-box h3 {
+            color: #d63384;
+            margin-bottom: 8px;
+        }
+
+        .detail-box p {
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
+        .quote {
+            text-align: center;
+            background: linear-gradient(135deg, #fff0f6, #ffe0ec);
+            padding: 30px;
+            border-radius: 20px;
+            font-size: 1.2rem;
+            line-height: 1.7;
+            font-style: italic;
+            color: #a04b74;
+        }
+
+        .quote strong {
+            display: block;
+            margin-top: 12px;
+            color: #d63384;
+            font-style: normal;
+        }
+
+        .letters {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 18px;
+        }
+
+        .letter {
+            background: #fff0f6;
+            border-left: 6px solid #ff72ad;
+            padding: 22px;
+            border-radius: 15px;
+            transition: 0.2s;
+            box-shadow: 0 5px 12px rgba(190, 58, 114, 0.08);
+        }
+
+        .letter:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(190, 58, 114, 0.15);
+        }
+
+        .letter h3 {
+            color: #d63384;
+            margin-bottom: 12px;
+        }
+
+        .letter p {
+            line-height: 1.7;
+        }
+
+        .closing {
+            text-align: center;
+            line-height: 1.7;
+            color: #80506a;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .footer {
+            text-align: center;
+            margin: 30px 0 10px;
+            color: #a04b74;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                padding: 50px 20px;
+            }
+
+            .card {
+                padding: 24px 18px;
+            }
+
+            nav span {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+
+        <nav>
+            <h2>♡ Birthday Wishes</h2>
+            <span>A celebration made with love</span>
+        </nav>
+
+        <section class="hero">
+            <h1>🎉 A Special Celebration 🎂</h1>
+
+            <p>
+                Today is a beautiful reminder of how special and loved you are.
+                May this new chapter bring you happiness, courage, success,
+                and unforgettable memories.
+            </p>
+
+            <p class="subtitle">
+                “Your existence is already something worth celebrating.” ✨
+            </p>
+        </section>
+
+        <div class="reveal-stage">
+
+            <section class="card" id="informationCard">
+                <h2>Tell Us About You ✨</h2>
+
+                <p class="card-intro">
+                    Enter your information below to reveal your personalized
+                    birthday message and the letters prepared especially for you.
+                </p>
+
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your name"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="birthdate">Your Birthdate</label>
+                    <input
+                        type="date"
+                        id="birthdate"
+                    >
+                </div>
+
+                <button onclick="showGreeting()">
+                    Reveal My Celebration 💗
+                </button>
+
+                <div id="greeting"></div>
+            </section>
+
+            <section class="card hidden" id="lettersSection">
+                <h2>Letters From Everyone 💌</h2>
+
+                <p class="card-intro">
+                    These messages were written to remind you how much you mean
+                    to the people around you.
+                </p>
+
+                <div class="letters" id="lettersContainer"></div>
+            </section>
+
+        </div>
+
+        <section class="card">
+            <h2>A Day Worth Celebrating 🌸</h2>
+
+            <div class="details">
+                <div class="detail-box">
+                    <div class="icon">💖</div>
+                    <h3>Love</h3>
+                    <p>
+                        May you always be surrounded by people who appreciate
+                        and care for you.
+                    </p>
+                </div>
+
+                <div class="detail-box">
+                    <div class="icon">🌟</div>
+                    <h3>Dreams</h3>
+                    <p>
+                        May you continue working toward the dreams that make
+                        your heart happy.
+                    </p>
+                </div>
+
+                <div class="detail-box">
+                    <div class="icon">🌷</div>
+                    <h3>Growth</h3>
+                    <p>
+                        May every experience help you become wiser, stronger,
+                        and more confident.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="quote">
+                “May the coming days remind you that even small joys
+                can become beautiful memories.”
+
+                <strong>— With love from everyone 💕</strong>
+            </div>
+        </section>
+
+        <section class="card">
+            <p class="closing">
+                Whatever this new year of your life brings, remember that
+                you do not have to face it alone. There will always be people
+                cheering for you, believing in you, and celebrating your journey. 💗
+            </p>
+        </section>
+
+        <p class="footer">
+            Made with love, happiness, and a little bit of pink ♡
+        </p>
+
+    </main>
+
+    <script>
+     
+        const letters = [
+            {
+                name: "Dana",
+                message:
+                    "To the best mom in the world and my first best friend! Thank you for your hardwork and dedication to caring for the family despite tough times. Malapit na ako magkatrabaho para matulungan ko kayo sa mga bayad. I love you, Mom!"
+            },
+            {
+                name: "Avi",
+                message:
+                    "I wish you well and that you forever accompany me n dana thru our rights and wrongs. Ur the best mom we could ever ask for and forever will have. Hopefully, we keep bonding and growing as a family and make better memories and live happier days tgt, loveu!!!!"
+            },
+            {
+                name: "Dad",
+                message:
+                    "Thank you for being my partner and my safe place. I see the love, grace and effort you bring to our life every single day you rule my heart like a king. The happy family  that we build together through  thick and thin,  I'm going to take care. Happy Birthday Mahal, There's no one else I'd rather do life with."
+            }
+        ];
+
+        function showGreeting() {
+            const name = document.getElementById("name").value.trim();
+            const birthdate = document.getElementById("birthdate").value;
+            const greeting = document.getElementById("greeting");
+            const lettersSection = document.getElementById("lettersSection");
+
+            if (name === "" || birthdate === "") {
+                greeting.textContent =
+                    "Please enter your name and birthdate first. 💗";
+
+                lettersSection.classList.add("hidden");
+                return;
+            }
+
+            const formattedDate = new Date(birthdate).toLocaleDateString(
+                "en-US",
+                {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric"
+                }
+            );
+
+            greeting.innerHTML = `
+                Happy Birthday, ${name}! 🎉<br>
+                Your special day is on ${formattedDate}.<br>
+                May all your wishes come true! 💕
+            `;
+
+            displayLetters();
+            lettersSection.classList.remove("hidden");
+
+            lettersSection.scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+
+        function displayLetters() {
+            const lettersContainer =
+                document.getElementById("lettersContainer");
+
+            lettersContainer.innerHTML = "";
+
+            letters.forEach(function(letter) {
+                lettersContainer.innerHTML += `
+                    <div class="letter">
+                        <h3>From ${letter.name} 💗</h3>
+                        <p>${letter.message}</p>
+                    </div>
+                `;
+            });
+        }
+    </script>
+</body>
+</html>
