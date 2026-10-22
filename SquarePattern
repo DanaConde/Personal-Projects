@@ -1,0 +1,29 @@
+/* Write a program to accept a natrual number and print a square pattern (2x2, 3x3, etc).*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    
+    int num;
+    
+    cout<<"===Square Pattern===\n";
+    
+    cout<<"Enter a number: ";
+    cin>>num;
+    
+    if (num<=0) {
+        cout<<"Invalid input. Please enter a natural number (greater than 0).";
+        return 1;
+    }
+    
+    for (int row=0; row<num; row++) {
+        for (int col=0; col<num; col++) {
+        cout<<"* ";
+        }
+        
+    cout<<"\n";
+    }
+    
+    return 0;
+}
