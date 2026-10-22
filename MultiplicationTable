@@ -1,0 +1,25 @@
+/* Write a program to accept a natrual number and provide multiplication of the number up to 12 rows.*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    
+    int num;
+    
+    cout<<"===Multiplication Table===\n";
+    
+    cout<<"Enter a number: ";
+    cin>>num;
+    
+    if (num<=0) {
+        cout<<"Invalid input. Please enter a natural number (greater than 0).";
+        return 1;
+    }
+    
+    for (int i=1; i<=12; ++i) {
+        cout<<num<<" x "<<i<< " = "<<(num*i)<<"\n";
+    }
+    
+    return 0;
+}
