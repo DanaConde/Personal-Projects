@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    
+    int x;
+    int count=0;
+    
+    cout<<"Enter a number: ";
+    cin>>x;
+    
+    while (count<=x){
+        cout<<count;
+        count=count+3;
+        cout<<"\n";
+    }
+
+    return 0;
+}
