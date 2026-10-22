@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+    
+    float x;
+    cout<<"Enter a number: ";
+    cin>>x;
+    
+    if (x>0){
+        cout<<"The number is positive.";
+    }
+    
+    else if (x<0){
+        cout<<"The number is negative.";
+    }
+    
+    else if (x=0){
+        cout<<"The number is zero.";
+    }
+    
+    else cout<<"Invalid input. Please enter a number.";
+    
+ return 0;
+}
