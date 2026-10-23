@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int number,limit;
+    int product;
+    
+    cout << "Enter a number: ";
+    cin >> number;
+    
+    cout << "Enter table limit: ";
+    cin >> limit;
+    
+    if (limit <= 0){
+        cout << "Limit must be positive.\n";
+        return 0;
+    }
+    for (int i=1;i<=limit;i++){
+        product = number * i;
+        cout << number << " x " << i << " = " << product;
+        
+        if (product % 2==0){
+            cout << " (EVEN)";
+        }else{  
+            cout << " (ODD)";
+        }
+        cout << endl;
+    }
+    return 0;
+}
