@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    
+   int number;
+   cout << "===Sentinel Value===\n";
+   cout << "Enter numbers (enter -1 to stop): " << endl;
+   
+   while (true) {
+       cin >> number;
+       if (number == -1) break; 
+       cout << "You entered: " << number << endl;
+   }
+   
+   cout << "Loop terminated." << endl;
+   
+   return 0;
+}
