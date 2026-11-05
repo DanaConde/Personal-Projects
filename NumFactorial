@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+int factorial(int n) {
+    int fact = 1;
+
+    for (int i = 1; i <= n; i++) {
+        fact *= i;
+    }
+
+    return fact;
+}
+
+int main() {
+    int num;
+    
+    cout << "===Factorial of a Number===\n";
+    
+    cout << "Enter a number: ";
+    cin >> num;
+    
+    cout << "\n===Results===\n";
+
+    if (num < 0) {
+        cout << "Please insert a non-negative number." << endl;
+    } else {
+        cout << "The factorial of " << num
+             << " is " << factorial(num) << endl;
+    }
+
+    return 0;
+}
