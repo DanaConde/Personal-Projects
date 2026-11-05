@@ -1,0 +1,25 @@
+#include <iostream>
+#include <string>
+using namespace std;
+ 
+void welcome(string name);
+ 
+int main()
+{
+    string name;
+    
+    cout << "===Personal Welcome Message===\n";
+    
+    cout << "Enter your name: ";
+    getline(cin,name);
+    welcome(name);
+    return 0;
+}
+ 
+void welcome(string name) {
+    cout << "\nWelcome, " << name << "!" << endl;
+    cout << "Welcome C++ programming " << endl;
+}
+ 
+ 
+ 
