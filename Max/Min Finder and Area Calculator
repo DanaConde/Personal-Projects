@@ -1,0 +1,58 @@
+#include <iostream>
+using namespace std;
+ 
+float maxNum (float n1, float n2) {
+    return (n1 > n2) ? n1 : n2;
+}
+
+float minNum (float n1, float n2) {
+    return (n1 < n2) ? n1 : n2;
+}
+
+float areaRectangle (float length, float width) {
+    return length * width;
+}
+
+float areaCircle(float n1, float n2) {
+    const float PI = 3.14159;
+    float radius = minNum(n1, n2);
+    return PI * radius * radius;
+}
+
+float areaTriangle(float base, float height) {
+    return 0.5 * base * height;
+}
+
+int main() {
+    float n1, n2;
+
+    cout << "=== Max/Min Finder and Area Calculator ===\n";
+
+    cout << "Enter the first number: ";
+    cin >> n1;
+
+    cout << "Enter the second number: ";
+    cin >> n2;
+
+    float maximum = maxNum(n1, n2);
+    float minimum = minNum(n1, n2);
+
+    float rectangleArea = areaRectangle(n1, n2);
+    float circleArea = areaCircle(n1, n2);
+    float triangleArea = areaTriangle(n1, n2);
+
+    cout << "\n===== RESULTS =====\n";
+
+    if (n1 == n2) {
+        cout << "The two numbers are equal: " << n1 << endl;
+    } else {
+        cout << "Maximum Number: " << maximum << endl;
+        cout << "Minimum Number: " << minimum << endl;
+    }
+
+    cout << "\nArea of Rectangle: " << rectangleArea << endl;
+    cout << "Area of Circle: "<< circleArea << endl;
+    cout << "Area of Triangle: " << triangleArea << endl;
+
+    return 0;
+}
