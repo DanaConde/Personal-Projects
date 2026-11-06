@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+ 
+void updateNumber (int &number);
+ 
+int main() {
+
+    int number;
+
+    cout << "===Update by Reference (10)===\n";
+
+    cout << "Enter a number: ";
+    cin >> number;
+
+    cout << "Before: " << number << endl;
+
+    updateNumber(number);
+    
+    cout << "===Results===\n";
+
+    cout << "After: " << number << endl;
+
+    return 0;
+}
+ 
+void updateNumber (int &number){
+    number +=10;
+}
+ 
