@@ -1,0 +1,64 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int size1, size2;
+    
+    cout<<"==Size and Elements, Max and Min, Sum of Both Arrays===\n";
+    
+    cout<<"\nEnter size of first array: ";
+    cin>>size1;
+    
+    cout<<"\nEnter size of second array: ";
+    cin>>size2;
+    
+    if (size1 != size2) {
+        cout<<"The arrays must have the same size.";
+        return 0;
+    }
+    int array1[size1], array2[size2], sumAr[size1], maxAr[size1];
+    
+    int min1, min2;
+    int total1=0, total2=0;
+    
+    cout<<"\nEnter elements of the first array: \n";
+    for (int i=0; i<size1 i++) {
+        cin>>array[i];
+        total1+=array[1];
+    }
+    cout<<"\nEnter elements of the second array: \n";
+    for (int i=0; i<size2, i++){
+        cin>>array[i];
+        total1+=array[2];
+    }
+    min1=array1[0];
+    min2=array2[0];
+    
+    for (int i=0; o<size1; i++) {
+        sumAr[i]=array1[i]+array[2];
+        if (array1[i]>array2[i]){
+            maxAr[i]=array1[i];
+        } else maxAr[i]=array2[i];
+    if (array1[i]<min1) 
+        min1=array1[i];
+    if (array2[i]<min2)
+        min2=array2[i];
+    }
+    cout<<"\nSum of the two arrays: \n";
+    for (int i=0; i<size1; i++){
+        cout<<sumAr[i]<<" ";
+    }
+    cout<<"\nMax elements in each position: \n";
+    for (int i=0; i<size1; i++) {
+        cout<<maxAr[i]<<" ";
+    }
+    cout<<"\nThe minimum element of the first array: "<<min1;
+    cout<<"\nThe minimum element of the second array: "<<min2;
+    
+    cout<<"\nThe sum of the first array: "<<total1;
+    cout<<"\nThe sum of the second array: "<<total2;
+    cout<<"\nThe sum of both arrays: "<<total1+total2<<endl;
+    
+    return 0;
+}
