@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    double num[10];
+    double sum=0;
+    double avg;
+    
+    cout<<"==Average using Array===\n";
+    
+    cout<<"Enter ten numbers: \n";
+    for (int i=0; i<10; i++) {
+        cout<<"Number "<<i+1<<": ";
+        cin>>num[i];
+        sum+=num[i];
+    }
+    avg=sum/10;
+    cout<<"\nAverage: "<<avg<<endl;
+
+    return 0;
+}
